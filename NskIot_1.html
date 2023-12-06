@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishko IOT V1</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto px-4 ">
+        <div class="flex flex-col md:flex-row justify-evenly items-center bg-sky-100">
+            <!-- Top Bar -->
+            <!-- <div class="">System Date : 1/8/2022</div> -->
+            <div class="text-3xl font-bold font-sans py-4 ">Nishko IOT Demopage</div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-evenly items-start md:items-center mt-4 py-4 bg-sky-300 px-6">
+            <div class="">System : <span id="sysstatus">OK</span></div>
+            <div class="">Device Id : <span>123</span></div>
+            <div class="">RS485 Communication : <span id="modbstatus">OK</span></div>
+            <div class="py-2 md:py-0">Time : <span id="time">10:21:22</span></div>
+        </div>
+
+    <div class="mt-8 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 font-normal tracking-tight text-gray-900 dark:text-white">Ch 1</h5>
+                <p id="v1" class="font-bold text-gray-700 dark:text-gray-400 text-2xl">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2  font-normal tracking-tight text-gray-900 dark:text-white">Ch 2</h5>
+                <p id="v2" class="font-bold text-gray-700 dark:text-gray-400 text-2xl">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2  font-normal tracking-tight text-gray-900 dark:text-white">Ch 3</h5>
+                <p id="v3" class="font-bold text-gray-700 dark:text-gray-400 text-2xl">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 font-normal tracking-tight text-gray-900 dark:text-white">Ch 4</h5>
+                <p id="v4" class="text-2xl font-bold text-gray-700 dark:text-gray-400">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 font-normal tracking-tight text-gray-900 dark:text-white">Ch 5</h5>
+                <p id="v5" class="text-2xl font-bold text-gray-700 dark:text-gray-400">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 font-normal tracking-tight text-gray-900 dark:text-white">Ch 6</h5>
+                <p id="v6" class="text-2xl font-bold text-gray-700 dark:text-gray-400">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 font-normal tracking-tight text-gray-900 dark:text-white">Ch 7</h5>
+                <p id="v7" class="text-2xl font-bold text-gray-700 dark:text-gray-400">22.00</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 font-normal tracking-tight text-gray-900 dark:text-white">Ch 8</h5>
+                <p id="v8" class="text-2xl font-bold text-gray-700 dark:text-gray-400">22.00</p>
+            </div>
+        </div>
+    </div>
+        <div class="mb-6 w-full flex flex-col md:flex-row justify-between">
+        <div class="mt-4 flex flex-col justify-center md:w-1/2 ">
+            <p>Current Scanning Period : <span id="scan_period_secs"></span> Min.</p>
+            <label for="scan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select New  Scanning Period</label>
+            <select id="scan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option value="1">1 Min</option>
+              <option value="5">5 Min</option>
+              <option value="10">10 Min</option>
+              <option value="15">15 Min</option>
+              <option value="30">30 Min</option>
+            </select>
+            <button type="button" id="scanperiod" class="w-1/2 md:w-1/3 mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Change</button>
+        </div>
+        <div class="mt-4 flex flex-col justify-center md:w-1/2 md:items-end text-justify text-gray-400">
+            <p>Developed By<br/>
+            Nishko Instruments Pvt Ltd.<br/>
+            Bhosari , Pune<br/>
+            Email : sales@nishko.com</p>
+        </div>
+    </div>
+    <button type="button" id="download-report" class="w-1/2 md:w-1/3 mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Download Monthly Report</button>
+    </div>
+
+    <script>
+
+        const scanperiod = document.getElementById("scanperiod")
+        const download_report = document.getElementById("download-report");
+
+        download_report.addEventListener("click", async ()=>{
+            const result = await fetch("https://blr1.blynk.cloud/external/api/data/get?token=ZxOnleF55FT-UiXZgdqUZlKNUElgIRLg&period=MONTH&granularityType=MINUTE&sourceType=AVG&format=ISO_SIMPLE&sendEvents=false&output=FILE&v1")
+            const link = await result.text()
+
+            console.log("link :", link)
+
+            let anchor = document.createElement("a")
+            anchor.href=link
+            anchor.download = "saveas"
+            anchor.click()
+
+            // document.removeChild(anchor)
+
+            
+        })
+
+         const checkModbus = () =>{
+            const modbstatus = document.getElementById('modbstatus')
+            fetch("https://blynk.cloud/external/api/get?token=sDGdwFmKcqh6On3RjHjD4ONGe4dVdsTP&v9")
+            .then(res => res.json())
+            .then(data => {
+                if(data == 1){
+                    modbstatus.innerText = "OK"
+                }else{
+                    modbstatus.innerText = "Error"
+                }
+            })
+        }
+
+        const fetchValues = () =>{
+
+            const ch1 = document.getElementById('v1')
+            const ch2 = document.getElementById('v2')
+            const ch3 = document.getElementById('v3')
+            const ch4 = document.getElementById('v4')
+            const ch5 = document.getElementById('v5')
+            const ch6 = document.getElementById('v6')
+            const ch7 = document.getElementById('v7')
+            const ch8 = document.getElementById('v8')
+            const sysstatus = document.getElementById('sysstatus')
+            const modbstatus = document.getElementById('modbstatus')
+            const scan_period_secs = document.getElementById("scan_period_secs");
+            //const ch1 = document.getElementById('v1')
+
+
+            fetch("https://blynk.cloud/external/api/get?token=sDGdwFmKcqh6On3RjHjD4ONGe4dVdsTP&v1&v2&v6&v7&v8&v10")
+            .then(res => res.json())
+            .then(data => {
+                ch1.innerText = data.v1
+                ch2.innerText = data.v2
+                ch3.innerText = data.v3
+                ch4.innerText = data.v4
+                ch5.innerText = data.v5
+                ch6.innerText = data.v6
+                ch7.innerText = data.v7
+                ch8.innerText = data.v8
+                scan_period_secs.innerText = data.v10;
+            })
+
+            fetch("https://blynk.cloud/external/api/isHardwareConnected?token=sDGdwFmKcqh6On3RjHjD4ONGe4dVdsTP")
+            .then(res => res.json())
+            .then(data => {
+                if(data == true){
+                    sysstatus.innerText = "Connected"
+                    checkModbus()
+                }else{
+                    sysstatus.innerText = "Disconnected"
+                    modbstatus.innerText = "Error" 
+                }
+            })
+        }
+        setInterval(()=>{
+            fetchValues()
+        }, 5000)
+
+        setInterval((()=>{
+            document.getElementById('time').innerText = new Date().toLocaleString()
+        }),1000)
+
+        scanperiod.addEventListener("click" , ()=>{
+           let scanningVal = document.getElementById("scan").value
+           fetch(`https://blynk.cloud/external/api/update?token=sDGdwFmKcqh6On3RjHjD4ONGe4dVdsTP&v10=${Number(scanningVal)}`).catch(err => console.log(err))
+        })
+
+    </script>
+
+</body>
+</html>
